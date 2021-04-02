@@ -26,11 +26,15 @@ window.addEventListener("load", () => {
          event.preventDefault();
       }
 
-      else if(typeof(pilotName.value) !== "string" || typeof(copilotName.value) !== "string"){
+      if(typeof(pilotName.value) !== "string" || typeof(copilotName.value) !== "string"){
          window.alert("Please enter only letters for the names");
          event.preventDefault();
       }
-      else if(isNaN(Number(fuel.value)) || isNaN(Number(cargoMass.value))){
+      else{
+         this.document.getElementById("pilotStatus").innerHTML = `${pilotName.value} Ready`;
+         this.document.getElementById("copilotStatus").innerHTML = `${copilotName.value} Ready`;
+      }
+      if(isNaN(Number(fuel.value)) || isNaN(Number(cargoMass.value))){
          window.alert("Pleae only enter numbers for the cargo");
          event.preventDefault();
       }
@@ -58,8 +62,7 @@ window.addEventListener("load", () => {
          this.document.getElementById("faultyItems").style.visibility = "hidden";
          this.document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
          this.document.getElementById("launchStatus").style.color = "green";
-         this.document.getElementById("pilotStatus").innerHTML = `${pilotName.value} Ready`;
-         this.document.getElementById("copilotStatus").innerHTML = `${copilotName.value} Ready`;
+
          event.preventDefault();
       } 
    
